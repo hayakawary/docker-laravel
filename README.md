@@ -1,4 +1,4 @@
-# 開発現場ですぐに使える！laravel+dockerな開発環境の構築
+# laravel+docker開発環境の構築
 ## 環境
 - 動作環境  
 macOS Catalina 10.15.1
@@ -75,4 +75,31 @@ Mysql workbenchなどでdockerで起動したmysqlへ接続する場合は以下
 ポート　13306  
 ユーザー名　root  
 パスワード　root
-# docker-laravel
+
+### 10. phpmyadminの追加
+
+### docker-compose.ymlにphpMyAdminの定義を追加する
+phpMyAdminのコンテナを追加
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  environment:
+    - PMA_ARBITRARY=1
+    - PMA_HOST=mysql
+    - PMA_USER=root
+    - PMA_PASSWORD=password
+  links:
+    - mysql
+  ports:
+     - 8080:80
+  volumes:
+     - "./phpmyadmin/sessions:/sessions"
+
+###composeでコンテナ起動
+docker-compose up -d
+
+###ブラウザでhttp://localhost:8080にアクセス
+
+
+
+
+
