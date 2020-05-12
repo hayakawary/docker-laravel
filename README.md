@@ -75,3 +75,4 @@ Mysql workbenchなどでdockerで起動したmysqlへ接続する場合は以下
 ポート　13306  
 ユーザー名　root  
 パスワード　root
+# docker-laravel
